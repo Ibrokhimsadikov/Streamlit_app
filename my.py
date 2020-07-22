@@ -9,7 +9,7 @@ import pandas as pd
 from sklearn import datasets
 import pickle
 from sklearn.ensemble import RandomForestClassifier
-from PIL import Image
+#from PIL import Image
 
 
 pickle_in = open("classifier1.pkl","rb")
