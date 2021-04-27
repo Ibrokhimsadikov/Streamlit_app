@@ -16,3 +16,8 @@ This is simple Streamlit ML app
         nlp.add_pipe(negex)
 
 
+#####TUIs
+TUI=pd.read_csv("tui_best.csv")
+label_list = ["Anatomy","Disorders"]
+tui_list = ["T043", "T201","T045", "T044", "T032","T041"]
+TUI = TUI[TUI['label'].isin(label_list)].reset_index(drop=True)
