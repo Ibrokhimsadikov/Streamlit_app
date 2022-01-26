@@ -1,24 +1,15 @@
 
-Jinja2
 joblib
-json5
-jsondiff
-jsonlines
-jsonschema
-numba
 numpy
-numpydoc
-openpyxl
 pandas
 requests
 scikit-learn
 shap
-statsmodels
 streamlit
 streamlit-disqus
 streamlit-lottie
 streamlit-theme
 wasabi
 Werkzeug
-xlrd
+
 
