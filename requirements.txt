@@ -146,7 +146,7 @@ lightgbm==2.3.1
 linear-tsv==1.1.0
 llvmlite==0.31.0
 locket==0.2.0
-lxml==4.4.1
+lxml==4.6.5
 MarkupSafe==1.1.1
 matplotlib==3.1.3
 mccabe==0.6.1
