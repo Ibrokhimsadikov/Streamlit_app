@@ -15,16 +15,17 @@ import time
 import shap
 import streamlit.components.v1 as components
 import requests
-import pickle
+# import pickle
+import joblib
 # Core Pkgs
 import streamlit as st 
 import os
 from PIL import Image
 shap.initjs()
 # Loading model to compare the results
-lin_reg_explainer1 = pickle.load(open('shaply.pkl','rb'))
-X_test = pickle.load(open('xtest.pkl','rb'))
-listing2 = pickle.load(open('listing.pkl','rb'))
+lin_reg_explainer1 = joblib.load(open('shaply.pkl','rb'))
+X_test = joblib.load(open('xtest.pkl','rb'))
+listing2 = joblib.load(open('listing.pkl','rb'))
 
 def load_lottieurl(url: str):
     r = requests.get(url)
