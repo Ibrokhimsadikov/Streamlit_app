@@ -23,8 +23,8 @@ from PIL import Image
 shap.initjs()
 # Loading model to compare the results
 lin_reg_explainer1 =pickle.load(open('shaply.pkl', 'rb'))
-# X_test = pickle.load(open('xtest.pkl','rb'))
-# listing2 = pickle.load(open('listing.pkl','rb'))
+X_test = pickle.load(open('xtest.pkl','rb'))
+listing2 = pickle.load(open('listing.pkl','rb'))
 
 def load_lottieurl(url: str):
     r = requests.get(url)
