@@ -1,9 +1,9 @@
-pandas
+pandas1.0.1
 shap
 scikit-learn
 streamlit-lottie
 requests
-numba
+numba==0.48.0
 Flask
 gunicorn
 itsdangerous
