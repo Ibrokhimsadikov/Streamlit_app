@@ -4,6 +4,7 @@ shap
 numpy 
 pandas
 streamlit_lottie
+numba
 
 
 
