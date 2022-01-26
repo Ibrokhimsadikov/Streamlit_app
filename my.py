@@ -5,7 +5,6 @@
 #utility packages
 import pandas as pd
 import numpy as np
-from statsmodels.stats.outliers_influence import variance_inflation_factor
 from sklearn.model_selection import train_test_split
 from sklearn.feature_selection import *
 from sklearn.ensemble import RandomForestRegressor
@@ -17,15 +16,11 @@ import shap
 import streamlit.components.v1 as components
 import requests
 import pickle
-shap.initjs()
-import warnings
-warnings.filterwarnings("ignore")
-pd.options.display.max_rows = 120
-
 # Core Pkgs
 import streamlit as st 
 import os
 from PIL import Image
+shap.initjs()
 # Loading model to compare the results
 lin_reg_explainer1 = pickle.load(open('shaply.pkl','rb'))
 X_test = pickle.load(open('xtest.pkl','rb'))
