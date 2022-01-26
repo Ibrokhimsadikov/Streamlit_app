@@ -29,6 +29,7 @@ warnings.filterwarnings("ignore")
 lin_reg_explainer1 =pickle.load(open('shaply.pkl', 'rb'))
 X_test = pickle.load(open('xtest.pkl','rb'))
 listing2 = pickle.load(open('listing.pkl','rb'))
+lm = pickle.load(open('lm.pkl','rb'))
 
 def load_lottieurl(url: str):
     r = requests.get(url)
@@ -83,17 +84,21 @@ def main():
     elif choice == "Single_predict":
         st.subheader("Local model explanation")
         
-        st_shap(shap.force_plot(lin_reg_explainer1.expected_value,lin_reg_explainer1.shap_values(X_test[0]),
+        row_index = st.slider('Select any individual observation to run local prediction', 0, 2000, 0)
+        st.write(listing2.loc[[row_index]])
+        row=listing2.loc[[row_index]].drop(['price'], axis = 1).values
+        
+        st_shap(shap.force_plot(lin_reg_explainer1.expected_value,lin_reg_explainer1.shap_values(row[0]),
                 feature_names=listing2.drop(['price'], axis = 1).columns,out_names="Price($)"))
         sample_idx = 0
 
-        shap_vals = lin_reg_explainer1.shap_values(X_test[sample_idx])
+        shap_vals = lin_reg_explainer1.shap_values(row[0])
 
         st.text(f'Base Value : {lin_reg_explainer1.expected_value}')
         
-        st.text(f'Shap Values for Sample %d: {sample_idx} {shap_vals}')
+        st.text(f'Shap Values for Sample %d:  {shap_vals}')
         print("\n")
-        #st.text(f'Prediction From Model                            : {lm.predict(X_test[sample_idx].reshape(1,-1))[0]}' )
+        st.text(f'Prediction From Model                            : {lm.predict(row[0].reshape(1,-1))[0]}' )
         st.text(f'Prediction From Adding SHAP Values to Base Value : {lin_reg_explainer1.expected_value + shap_vals.sum()}' )
         
 
