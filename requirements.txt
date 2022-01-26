@@ -1,15 +1,10 @@
-
-joblib
 numpy
 pandas
-requests
 scikit-learn
 shap
 streamlit
-streamlit-disqus
 streamlit-lottie
 streamlit-theme
-wasabi
-Werkzeug
+
 
 
