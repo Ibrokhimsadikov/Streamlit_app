@@ -47,8 +47,34 @@ def main():
     choice = st.sidebar.selectbox("Menu",menu)
 
     if choice == "Model_general":
-        st.subheader("Metrics")
-        #raw_text = st.text_area("Your Text","Enter Text Here")
+        st.header("Global Model Explonation")
+        st.text()
+        st.subheader("Feature Importance")
+        st_shap(shap.summary_plot(lin_reg_explainer1.shap_values(X_test),
+                  feature_names=listing2.drop(['price'], axis = 1).columns,
+                  plot_type="bar",
+                  color="dodgerblue"
+                  ))
+        st.text()
+        
+        st.subheader("Global Impact")
+        st_shap(shap.force_plot(lin_reg_explainer1.expected_value,
+                explainer1.shap_values(X_test[0:100]),
+                feature_names=listing2.drop(['price'], axis = 1).columns,
+                out_names="Price($)", figsize=(25,3),
+                link="identity"))
+       
+        
+        
+        
+        
+        
+
+            
+
+    elif choice == "Single_predict":
+        st.subheader("Local model explanation")
+        
         st_shap(shap.force_plot(lin_reg_explainer1.expected_value,lin_reg_explainer1.shap_values(X_test[0]),
                 feature_names=listing2.drop(['price'], axis = 1).columns,out_names="Price($)"))
         sample_idx = 0
@@ -59,17 +85,8 @@ def main():
         
         st.text(f'Shap Values for Sample %d: {sample_idx} {shap_vals}')
         print("\n")
-        #print("Prediction From Model                            : ", lm.predict(X_test[sample_idx].reshape(1,-1))[0])
-        print("Prediction From Adding SHAP Values to Base Value : ", lin_reg_explainer1.expected_value + shap_vals.sum())
-        
-        
-        
-        
-#         if st.button("Tokenize"):
-            
-
-    elif choice == "Single_predict":
-        st.subheader("Named Entity Recognition")
+        #st.text(f'Prediction From Model                            : {lm.predict(X_test[sample_idx].reshape(1,-1))[0]}' )
+        st.text(f'Prediction From Adding SHAP Values to Base Value : {lin_reg_explainer1.expected_value + shap_vals.sum()}' )
         
 
 
