@@ -158,7 +158,6 @@ pathlib2==2.3.5
 pathtools==0.1.2
 pathy==0.4.0
 patsy==0.5.1
-pattern==0.0.1
 peewee==3.13.1
 pep8==1.7.1
 pexpect==4.8.0
