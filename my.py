@@ -48,14 +48,14 @@ def main():
 
     if choice == "Model_general":
         st.header("Global Model Explonation")
-        st.text()
+        st.text("")
         st.subheader("Feature Importance")
         st_shap(shap.summary_plot(lin_reg_explainer1.shap_values(X_test),
                   feature_names=listing2.drop(['price'], axis = 1).columns,
                   plot_type="bar",
                   color="dodgerblue"
                   ))
-        st.text()
+        st.text("")
         
         st.subheader("Global Impact")
         st_shap(shap.force_plot(lin_reg_explainer1.expected_value,
