@@ -12,6 +12,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn import metrics
 from streamlit_lottie import st_lottie
 import shap
+import matplotlib.pyplot as plt
 import streamlit.components.v1 as components
 import requests
 import joblib
@@ -21,6 +22,9 @@ import streamlit as st
 import os
 from PIL import Image
 shap.initjs()
+st.set_option('deprecation.showPyplotGlobalUse', False)
+import warnings
+warnings.filterwarnings("ignore")
 # Loading model to compare the results
 lin_reg_explainer1 =pickle.load(open('shaply.pkl', 'rb'))
 X_test = pickle.load(open('xtest.pkl','rb'))
@@ -50,7 +54,7 @@ def main():
         st.header("Global Model Explonation")
         st.text("")
         st.subheader("Feature Importance")
-        st_shap(shap.summary_plot(lin_reg_explainer1.shap_values(X_test),
+        st.pyplot(shap.summary_plot(lin_reg_explainer1.shap_values(X_test),
                   feature_names=listing2.drop(['price'], axis = 1).columns,
                   plot_type="bar",
                   color="dodgerblue"
@@ -59,10 +63,14 @@ def main():
         
         st.subheader("Global Impact")
         st_shap(shap.force_plot(lin_reg_explainer1.expected_value,
-                explainer1.shap_values(X_test[0:100]),
+                lin_reg_explainer1.shap_values(X_test[0:100]),
                 feature_names=listing2.drop(['price'], axis = 1).columns,
                 out_names="Price($)", figsize=(25,3),
-                link="identity"))
+                link="identity"), 400)
+        st.subheader("Feature Impact on output")
+        st.pyplot(shap.summary_plot(lin_reg_explainer1.shap_values(X_test),
+                  features = X_test,
+                  feature_names=listing2.drop(['price'], axis = 1).columns))
        
         
         
