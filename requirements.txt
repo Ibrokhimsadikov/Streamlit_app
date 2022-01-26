@@ -3,6 +3,7 @@ streamlit
 shap
 numpy 
 pandas
+streamlit_lottie
 
 
 
