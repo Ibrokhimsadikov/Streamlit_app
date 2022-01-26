@@ -96,7 +96,7 @@ def main():
 
         st.text(f'Base Value : {lin_reg_explainer1.expected_value}')
         
-        st.text(f'Shap Values for Sample %d:  {shap_vals}')
+        #st.text(f'Shap Values for Sample %d:  {shap_vals}')
         print("\n")
         st.text(f'Prediction From Model                            : {lm.predict(row[0].reshape(1,-1))[0]}' )
         st.text(f'Prediction From Adding SHAP Values to Base Value : {lin_reg_explainer1.expected_value + shap_vals.sum()}' )
