@@ -62,7 +62,6 @@ distributed==2.11.0
 docopt==0.6.2
 docstringtest==0.3.0
 docutils==0.15.2
-en-info-3700-i2b2-2012==0.1.0
 entrypoints==0.3
 enum-compat==0.0.3
 et-xmlfile==1.0.1
