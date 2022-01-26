@@ -187,7 +187,6 @@ pycodestyle==2.5.0
 pycosat==0.6.3
 pycparser==2.19
 pycrypto==2.6.1
-pycurl==7.43.0.2
 pydantic==1.7.4
 pydeck==0.4.0b2
 pydocstyle==4.0.1
