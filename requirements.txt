@@ -1,6 +1,8 @@
 sklearn
 streamlit
 shap
+numpy 
+pandas
 
 
 
