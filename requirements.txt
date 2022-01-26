@@ -12,7 +12,6 @@ astroid==2.3.3
 astropy==4.0
 atomicwrites==1.3.0
 attrs==19.3.0
-Automat @ file:///tmp/build/80754af9/automat_1600298431173/work
 autopep8==1.4.4
 Babel==2.8.0
 backcall==0.1.0
@@ -61,7 +60,6 @@ coverage==5.3
 cryptography==2.3.1
 cycler==0.10.0
 cymem==2.0.3
-Cython @ file:///D:/bld/cython_1602367529523/work
 cytoolz==0.10.1
 dask==2.11.0
 datasets==1.1.2
@@ -90,7 +88,6 @@ fastobo==0.10.0
 filelock==3.0.12
 flake8==3.7.9
 Flask==1.1.1
-Flask-Cors @ file:///tmp/build/80754af9/flask-cors_1598886879133/work
 fsspec==0.6.2
 future==0.18.2
 fuzzywuzzy==0.18.0
@@ -103,7 +100,6 @@ greenlet==0.4.15
 h5py==2.10.0
 HeapDict==1.0.1
 html5lib==1.0.1
-hyperlink @ file:///tmp/build/80754af9/hyperlink_1600360282274/work
 hypothesis==5.5.4
 idna==2.8
 ijson==3.1.post0
@@ -134,7 +130,6 @@ jupyter-client==5.3.4
 jupyter-console==6.1.0
 jupyter-core==4.6.1
 jupyterlab==1.2.6
-jupyterlab-launcher @ file:///tmp/build/80754af9/jupyterlab_launcher_1601490670252/work
 jupyterlab-server==1.0.6
 keyring==21.1.0
 kindred==2.7.8
@@ -228,7 +223,6 @@ pydocstyle==4.0.1
 PyFastNER==1.0.8b10
 pyflakes==2.1.1
 Pygments==2.5.2
-PyHamcrest @ file:///tmp/build/80754af9/pyhamcrest_1594390921726/work
 PyJWT==1.7.1
 pylint==2.4.4
 PyMedTermino==0.3.3
@@ -372,4 +366,3 @@ yapf==0.28.0
 yarg==0.1.9
 zict==1.0.0
 zipp==2.2.0
-zope.interface @ file:///C:/ci/zope.interface_1602002496598/work
