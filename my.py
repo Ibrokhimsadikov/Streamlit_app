@@ -43,11 +43,11 @@ def main():
     st.title("MVP Price Suggestion")
     
 
-    menu = ["Home","NER"]
+    menu = ["Model_general","Single_predict"]
     choice = st.sidebar.selectbox("Menu",menu)
 
-    if choice == "Home":
-        st.subheader("Tokenization")
+    if choice == "Model_general":
+        st.subheader("Metrics")
         #raw_text = st.text_area("Your Text","Enter Text Here")
         st_shap(shap.force_plot(lin_reg_explainer1.expected_value,lin_reg_explainer1.shap_values(X_test[0]),
                 feature_names=listing2.drop(['price'], axis = 1).columns,out_names="Price($)"))
@@ -68,7 +68,7 @@ def main():
 #         if st.button("Tokenize"):
             
 
-    elif choice == "NER":
+    elif choice == "Single_predict":
         st.subheader("Named Entity Recognition")
         
 
