@@ -4,6 +4,7 @@ streamlit
 numpy
 scikit-learn
 streamlit-lottie
+requests
 
 
 
