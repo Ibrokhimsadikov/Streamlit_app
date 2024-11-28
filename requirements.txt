@@ -9,7 +9,7 @@ scipy==1.4.1
 seaborn==0.10.0
 shap==0.40.0
 statsmodels==0.11.0
-streamlit==1.0.0
+streamlit==1.11.1
 streamlit-lottie==0.0.2
 streamlit-theme==0.58.0
 xgboost==1.1.1
