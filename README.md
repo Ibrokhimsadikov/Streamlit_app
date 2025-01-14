@@ -1,3 +1,27 @@
-Thank you for your message. I am currently out of the office due to an unexpected family emergency and will be away for an extended period. I will respond as soon as I am able, but if your matter is urgent, please contact [Alternate Contact/Team Member’s Name and Email].
+import seaborn as sns
+from matplotlib.colors import rgb2hex
 
-Thank you for your understanding.
+def generate_color_palette(strings):
+    """
+    Generate a dictionary mapping each string in the list to a unique HEX color.
+    
+    Args:
+        strings (list of str): List of strings for which to generate colors.
+    
+    Returns:
+        dict: A dictionary where keys are strings and values are HEX color codes.
+    """
+    # Generate a scalable color palette using Seaborn
+    palette = sns.color_palette("husl", len(strings))
+    
+    # Convert RGB values to HEX and create a dictionary
+    color_dict = {item: rgb2hex(palette[i]) for i, item in enumerate(strings)}
+    
+    return color_dict
+
+# Example usage
+str_list = ["apple", "banana", "cherry", "date", "elderberry", "fig", "grape"]
+color_mapping = generate_color_palette(str_list)
+
+# Print the resulting dictionary
+print(color_mapping)
