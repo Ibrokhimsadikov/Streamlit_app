@@ -1,34 +1,39 @@
-import random
-from matplotlib.colors import rgb2hex
+custom_css = """
+.row {
+    display: flex;
+    align-items: center;
+}
+.box {
+    height: 10px;
+    width: 10px;
+    border-radius: 2px;
+    margin-right: 5px;
+    padding: 0px 0 1px 0;
+    text-align: center;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+#legend {
+    position: absolute;
+    top: 0;
+    right: 0;
+    max-height: 200px; /* Restricts height */
+    overflow-y: auto; /* Enables vertical scrolling */
+    border: 1px solid #ccc; /* Adds a border */
+    padding: 5px; /* Adds padding */
+    background-color: white; /* Background color */
+}
+#title-container {
+    max-width: 75%;
+}
+"""
 
-def generate_distinct_colors(strings):
-    """
-    Generate a dictionary mapping each string in the list to a unique, distinct HEX color.
-    
-    Args:
-        strings (list of str): List of strings for which to generate colors.
-    
-    Returns:
-        dict: A dictionary where keys are strings and values are distinct HEX color codes.
-    """
-    num_colors = len(strings)
-    random.seed(42)  # For reproducibility
-    colors = set()
-    
-    while len(colors) < num_colors:
-        # Generate a random RGB color and convert it to HEX
-        r, g, b = [random.randint(0, 255) for _ in range(3)]
-        hex_color = rgb2hex((r/255, g/255, b/255))
-        colors.add(hex_color)
-    
-    # Assign each unique color to a string
-    color_dict = {string: color for string, color in zip(strings, colors)}
-    return color_dict
-
-# Example usage
-str_list = [f"item_{i}" for i in range(1, 201)]  # List of 200 strings
-color_mapping = generate_distinct_colors(str_list)
-
-# Print a small sample of the result
-for key, value in list(color_mapping.items())[:10]:  # Show only the first 10
-    print(f"{key}: {value}")
+custom_html = """
+<div id="legend" class="container-box">
+"""
+for field, color in color_mapping.items():
+    custom_html += f'    <div class="row"><div id="{field}" class="box" style="background-color:{color};"></div>{field}</div>\n'
+custom_html += """
+</div>
+"""
