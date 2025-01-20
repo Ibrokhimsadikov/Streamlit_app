@@ -6,34 +6,40 @@ custom_css = """
 .box {
     height: 10px;
     width: 10px;
-    border-radius: 2px;
+    border: 1px solid black; /* Black border for the box */
+    background-color: white; /* White background */
     margin-right: 5px;
-    padding: 0px 0 1px 0;
+    padding: 0px;
     text-align: center;
-    color: white;
     font-size: 14px;
     cursor: pointer;
 }
 #legend {
     position: absolute;
-    top: 0;
+    top: 50%;
     right: 0;
-    max-height: 200px; /* Restricts height */
-    overflow-y: auto; /* Enables vertical scrolling */
-    border: 1px solid #ccc; /* Adds a border */
-    padding: 5px; /* Adds padding */
-    background-color: white; /* Background color */
+    transform: translateY(-50%);
+    max-height: 400px; /* Limit height for scrolling */
+    overflow-y: auto; /* Enable scrolling for overflow */
+    border: 1px solid #ccc; /* Optional: Add a border around the legend */
+    background-color: #fff; /* Optional: Add a background color */
+    padding: 10px; /* Optional: Add padding */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: Add shadow */
 }
 #title-container {
     max-width: 75%;
 }
 """
 
+
+
+
+
 custom_html = """
 <div id="legend" class="container-box">
 """
-for field, color in color_mapping.items():
-    custom_html += f'    <div class="row"><div id="{field}" class="box" style="background-color:{color};"></div>{field}</div>\n'
+for field in color_mapping.keys():  # Only iterate through field names
+    custom_html += f'    <div class="row"><div id="{field}" class="box"></div>{field}</div>\n'
 custom_html += """
 </div>
 """
